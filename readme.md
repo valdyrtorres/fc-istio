@@ -1,1 +1,0 @@
-Vamos usar o k3d derivado do k3s que é uma versão minimalista do kunernetes feito pelo pessoal do Rancher.
