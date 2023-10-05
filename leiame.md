@@ -25,3 +25,18 @@ kubectl get ns
 kubectl get pod -n istio-system
 kubectl get svc
 kubectl get svc -n istio-system
+
+-------------------------------
+Injetando sidecar proxy
+kubectl apply -f deployment.yaml 
+kubectl delete -f deployment.yaml 
+kubectl apply -f deployment.yaml 
+
+kubectl label namespace default istio-injection=enabled
+
+kubectl delete deploy nginx
+kubectl apply -f deployment.yaml 
+kubectl get pods
+kubectl describe pod nginx-6c9d4d964d-9zvq4
+
+
