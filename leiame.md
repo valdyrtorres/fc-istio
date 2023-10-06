@@ -38,5 +38,19 @@ kubectl delete deploy nginx
 kubectl apply -f deployment.yaml 
 kubectl get pods
 kubectl describe pod nginx-6c9d4d964d-9zvq4
+-------------------------------------
+Configurando addons - Kiali
+kubectl apply -f addons/prometheus.yaml
+kubectl apply -f addons/kiali.yaml
+kubectl apply -f addons/jaeger.yaml
+kubectl apply -f addons/grafana.yaml
 
+kubectl get pod -n istio-system
 
+kubectl logs pod/jaeger-db6bdfcb4-rl8rp --namespace=istio-system --container=jaeger --since=0
+
+kubectl delete -f addons/jaeger.yaml
+-- Problemas de memória
+kubectl apply -f addons/jaeger.yaml
+
+istioctl dashboard kiali
